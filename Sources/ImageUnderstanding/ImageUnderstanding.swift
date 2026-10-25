@@ -29,6 +29,10 @@ import ImageIO
 /// table structure, Vision's document reader (swift-document-reader) is
 /// faster and deterministic — this library is for what OCR can't do: "what
 /// is this?", "what's the total?", "which of these is selected?".
+///
+/// Image input arrived with the 27 releases; on 26 the package still links,
+/// and callers check `#available` first.
+@available(macOS 27, iOS 27, visionOS 27, watchOS 27, *)
 public enum ImageUnderstanding {
 
     /// Whether the on-device model can run right now.

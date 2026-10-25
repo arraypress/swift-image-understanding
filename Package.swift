@@ -1,17 +1,19 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "ImageUnderstanding",
-    // FoundationModels image input needs the 27-era SDKs, and is unavailable
-    // on tvOS entirely.
+    // The 26 floors let a tool that links this still run there (vid analyze
+    // skips scene descriptions on 26): FoundationModels' image input is
+    // 27-only, so the API is `@available(macOS 27, …)` and the call sites
+    // check. Unavailable on tvOS entirely.
     platforms: [
-        .macOS("27.0"),
-        .iOS("27.0"),
-        .visionOS("27.0"),
-        .watchOS("27.0")
+        .macOS(.v26),
+        .iOS(.v26),
+        .visionOS(.v26),
+        .watchOS(.v26)
     ],
     products: [
         .library(

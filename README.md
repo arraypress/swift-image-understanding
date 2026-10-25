@@ -16,9 +16,13 @@ This is the **understanding** half of reading images. For verbatim OCR, tables k
 
 ## Requirements
 
-- macOS 27.0+ / iOS 27.0+ / visionOS 27.0+ / watchOS 27.0+ (no tvOS — FoundationModels image input is unavailable there)
+- macOS 27.0+ / iOS 27.0+ / visionOS 27.0+ / watchOS 27.0+ to run (no tvOS — FoundationModels image input is unavailable there)
 - Apple Intelligence enabled
-- Swift 6.0+ / Xcode 27.0+
+- Swift 6.2+ / Xcode 27.0+
+
+The package itself declares 26 floors so an app or tool that links it still runs on 26: `ImageUnderstanding` is
+`@available(macOS 27, …)`, so check `#available(macOS 27, *)` before calling it (`vid analyze` skips its shot
+descriptions on 26 that way).
 
 ## Installation
 
